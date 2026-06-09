@@ -2,38 +2,29 @@
 
 ## Overview
 
-Student Data Organizer is a small Python console program for managing a collection of student records. It was written to match the assignment requirements for string formatting, collection data types, mutability and immutability, type casting, and the `del` keyword.
+Student Data Organizer is a small Python console program for managing a collection of student records. The program stores all student records in a single list; each student is represented by a dictionary with the fields: `id`, `name`, `age`, `grade`, `dob`, and `subjects`.
 
-The program keeps the student data in a few different collection types so each one has a clear purpose:
+The script is intentionally lightweight and runs in-memory only (no file or database persistence).
 
-- a **list** stores all student records in the order they were added
-- a **dictionary** provides quick lookup by student ID
-- a **tuple** stores each student's ID and date of birth as fixed identity data
-- a **set** removes duplicate subjects and helps show the unique subjects offered
+## Data Model
+
+- Students: a list of dictionaries, e.g. {"id": 1, "name": "Alice", "age": 14, "grade": "9", "dob": "2007-05-21", "subjects": ["Math", "Science"]}
+- Subjects: stored per-student as lists; the program uses a temporary `set` when listing unique subjects.
 
 ## Features
 
-- add a new student record
-- display every stored student in formatted output
-- update mutable fields such as name, age, grade, and subjects
-- delete a student record by student ID using `del`
-- display the full list of unique subjects
-- validate numeric input and date input before saving data
+- Add a new student record (ID, name, age, grade, date of birth, subjects)
+- List all students with formatted output
+- Update mutable fields: name, age, grade, and subjects
+- Delete a student record by student ID
+- List all unique subjects offered (collected from student records)
+- Input validation for integers and dates
 
-## String Formatting Used
+## Input & Formatting
 
-The script demonstrates all three formatting styles requested in the assignment:
-
-- `f-strings` for the main record display
-- `.format()` for the welcome message
-- `%` formatting for the add-student confirmation message
-
-## Assumptions
-
-- Student IDs are unique positive integers.
 - Date of birth must be entered in `YYYY-MM-DD` format.
-- Subjects are entered as a comma-separated list.
-- Updating the date of birth is intentionally not offered because it is stored inside an immutable tuple.
+- Subjects are entered as a comma-separated list and stored as a list of strings.
+- The program uses `f-strings` for formatted output.
 
 ## How To Run
 
@@ -45,13 +36,15 @@ python pr3.py
 
 ## Example Flow
 
-1. Choose `Add Student`.
-2. Enter the student's ID, name, age, grade, date of birth, and subjects.
-3. Use `Display All Students` to review the saved records.
-4. Use `Update Student Information` to change mutable fields.
-5. Use `Delete Student` to remove a record by ID.
+1. Run the script and choose `1` to add a student.
+2. Enter the student's ID, name, age, grade, date of birth, and subjects (comma-separated).
+3. Choose `2` to list students and review saved records.
+4. Choose `3` to update a student's name, age, grade, or subjects.
+5. Choose `4` to delete a student by ID.
+6. Choose `5` to list all unique subjects.
 
 ## File Notes
 
-- [`pr3.py`](pr3.py) contains the full interactive program.
-- [`README.md`](README.md) explains the structure and assumptions in plain language.
+- [pr3.py](pr3.py) contains the full interactive program. The implementation keeps data in memory and uses simple console input/output.
+
+If you'd like, I can add persistent storage (JSON file), unit tests, or example data to demo the program.
