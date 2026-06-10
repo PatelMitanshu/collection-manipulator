@@ -46,5 +46,3 @@ python pr3.py
 ## File Notes
 
 - [pr3.py](pr3.py) contains the full interactive program. The implementation keeps data in memory and uses simple console input/output.
-
-If you'd like, I can add persistent storage (JSON file), unit tests, or example data to demo the program.

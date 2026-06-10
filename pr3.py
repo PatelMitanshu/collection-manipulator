@@ -90,7 +90,7 @@ def update_student():
         print("Student not found.\n")
         return
     print("Press Enter to keep current value.")
-    name = input(f"Name [{s['name']}]: ").strip() or s["name"]
+    name = input(f"Name [{s['name']}]: ").strip() or s["name"] 
     age_in = input(f"Age [{s['age']}]: ").strip()
     age = s["age"]
     if age_in:
